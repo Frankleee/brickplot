@@ -107,10 +107,10 @@ class TwoAxis():
         self.line_width = 2
         self.spine_width = 3
 
-        self.label_font_size = 32
-        self.legend_font_size = 22
+        self.label_font_size = 28
+        self.legend_font_size = 20
         self.title_font_size = 28
-        self.tick_font_size = 24
+        self.tick_font_size = 20
 
         self.legend_name = ''
         self.x_label_name = 'x'
@@ -202,10 +202,10 @@ class FourAxis():
         self.line_width = 2
         self.spine_width = 3
 
-        self.label_font_size = 32
-        self.legend_font_size = 22
+        self.label_font_size = 28
+        self.legend_font_size = 20
         self.title_font_size = 28
-        self.tick_font_size = 24
+        self.tick_font_size = 20
 
         self.legend_name = ''
         self.x1_label_name = 'x'
