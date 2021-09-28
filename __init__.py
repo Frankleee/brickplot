@@ -30,6 +30,11 @@ class OneAxis():
         self.legend_font_size = 22
         self.title_font_size = 28
         self.tick_font_size = 24
+        self.tick_major_width = 3
+        self.tick_major_length = 8
+        self.tick_minor_width = 2
+        self.tick_minor_length = 5
+        self.tick_direction = 'in'
 
         self.legend_name = ''
         self.x_label_name = 'x'
@@ -52,6 +57,11 @@ class OneAxis():
         self.legend_font_size = kwargs.get('legend_font_size', self.legend_font_size)
         self.title_font_size = kwargs.get('title_font_size', self.title_font_size)
         self.tick_font_size = kwargs.get('tick_font_size', self.tick_font_size)
+        self.tick_major_width = kwargs.get('tick_major_width', self.tick_major_width)
+        self.tick_major_length = kwargs.get('tick_major_length', self.tick_major_length)
+        self.tick_minor_width = kwargs.get('tick_minor_width', self.tick_minor_width)
+        self.tick_minor_length = kwargs.get('tick_minor_length', self.tick_minor_length)
+        self.tick_direction = kwargs.get('tick_direction', self.tick_direction)
         self.legend_name = kwargs.get('legend_name', self.legend_name)
         self.x_label_name = kwargs.get('x_label_name', self.x_label_name)
         self.y_label_name = kwargs.get('y_label_name', self.y_label_name)
@@ -63,7 +73,7 @@ class OneAxis():
         self.y_color = kwargs.get('y_color', self.y_color)
 
     def set_fig(self):
-        plt.rcParams['font.sans-serif'] = ['Times New Roman']
+        plt.rcParams['font.sans-serif'] = ['Arial']
         plt.rcParams['axes.unicode_minus'] = False
 
         self.fig.set_figwidth(self.fig_width)
@@ -83,6 +93,9 @@ class OneAxis():
         self.ax1.xaxis.label.set_color(self.x_color)
         self.ax1.xaxis.label.set_fontsize(self.label_font_size)
         self.ax1.tick_params(axis='x', colors=self.x_color)
+        self.ax1.tick_params(which='major', length=self.tick_major_length, width=self.tick_major_width)
+        self.ax1.tick_params(which='minor', length=self.tick_minor_length, width=self.tick_minor_width)
+        self.ax1.tick_params(which='both', direction=self.tick_direction)
         for label in self.ax1.get_xticklabels():
             label.set_color(self.x_color)
             label.set_fontsize(self.tick_font_size)
@@ -111,6 +124,11 @@ class TwoAxis():
         self.legend_font_size = 20
         self.title_font_size = 28
         self.tick_font_size = 20
+        self.tick_major_width = 3
+        self.tick_major_length = 8
+        self.tick_minor_width = 2
+        self.tick_minor_length = 5
+        self.tick_direction = 'in'
 
         self.legend_name = ''
         self.x_label_name = 'x'
@@ -120,7 +138,7 @@ class TwoAxis():
         self.fig_title = ''
 
         self.dpi = 150
-        self.gridon = True
+        self.gridon = False
 
         self.x_color = 'k'
         self.y1_color = 'k'
@@ -135,6 +153,11 @@ class TwoAxis():
         self.legend_font_size = kwargs.get('legend_font_size', self.legend_font_size)
         self.title_font_size = kwargs.get('title_font_size', self.title_font_size)
         self.tick_font_size = kwargs.get('tick_font_size', self.tick_font_size)
+        self.tick_major_width = kwargs.get('tick_major_width', self.tick_major_width)
+        self.tick_major_length = kwargs.get('tick_major_length', self.tick_major_length)
+        self.tick_minor_width = kwargs.get('tick_minor_width', self.tick_minor_width)
+        self.tick_minor_length = kwargs.get('tick_minor_length', self.tick_minor_length)
+        self.tick_direction = kwargs.get('tick_direction', self.tick_direction)
         self.legend_name = kwargs.get('legend_name', self.legend_name)
         self.x_label_name = kwargs.get('x_label_name', self.x_label_name)
         self.y1_label_name = kwargs.get('y1_label_name', self.y1_label_name)
@@ -148,7 +171,7 @@ class TwoAxis():
         self.y2_color = kwargs.get('y2_color', self.y2_color)
 
     def set_fig(self):
-        plt.rcParams['font.sans-serif'] = ['Times New Roman']
+        plt.rcParams['font.sans-serif'] = ['Arial']
         plt.rcParams['axes.unicode_minus'] = False
 
         self.fig.set_figwidth(self.fig_width)
@@ -169,6 +192,9 @@ class TwoAxis():
         self.ax1.xaxis.label.set_color(self.x_color)
         self.ax1.xaxis.label.set_fontsize(self.label_font_size)
         self.ax1.tick_params(axis='x', colors=self.x_color)
+        self.ax1.tick_params(which='major', length=self.tick_major_length, width=self.tick_major_width)
+        self.ax1.tick_params(which='minor', length=self.tick_minor_length, width=self.tick_minor_width)
+        self.ax1.tick_params(which='both', direction=self.tick_direction)
         for label in self.ax1.get_xticklabels():
             label.set_color(self.x_color)
             label.set_fontsize(self.tick_font_size)
@@ -183,6 +209,9 @@ class TwoAxis():
         self.ax2.yaxis.label.set_color(self.y2_color)
         self.ax2.yaxis.label.set_fontsize(self.label_font_size)
         self.ax2.tick_params(axis='y', colors=self.y2_color)
+        self.ax2.tick_params(which='major', length=self.tick_major_length, width=self.tick_major_width)
+        self.ax2.tick_params(which='minor', length=self.tick_minor_length, width=self.tick_minor_width)
+        self.ax2.tick_params(which='both', direction=self.tick_direction)
         for label in self.ax2.get_yticklabels():
             label.set_color(self.y2_color)
             label.set_fontsize(self.tick_font_size)
@@ -218,7 +247,7 @@ class FourAxis():
         self.fig_title = ''
 
         self.dpi = 150
-        self.gridon = True
+        self.gridon = False
 
         self.x1_color = 'k'
         self.x2_color = 'k'
@@ -255,7 +284,7 @@ class FourAxis():
         self.y4_color = kwargs.get('y4_color', self.y4_color)
 
     def set_fig(self):
-        plt.rcParams['font.sans-serif'] = ['Times New Roman']
+        plt.rcParams['font.sans-serif'] = ['Arial']
         plt.rcParams['axes.unicode_minus'] = False
 
         self.fig.set_figwidth(self.fig_width)
